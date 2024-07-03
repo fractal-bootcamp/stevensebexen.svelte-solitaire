@@ -27,3 +27,17 @@ export function cardsAdjacent(val0: number, val1: number): boolean {
   const [v0, v1] = [interpretValue(val0)[0], interpretValue(val1)[0]];
   return Math.abs(v0 - v1) === 1 || Math.abs(v0 - v1) === 12;  // Adjacent or 1 and 13.
 }
+
+export function valueToCardText(val: number): string {
+  const value = interpretValue(val)[0];
+  switch(value) {
+    case 13:
+      return 'K';
+    case 12:
+      return 'Q';
+    case 11:
+      return 'J';
+    default:
+      return value.toString();
+  }
+}

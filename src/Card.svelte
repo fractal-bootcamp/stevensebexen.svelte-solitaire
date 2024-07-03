@@ -4,16 +4,16 @@
 </script>
 
 <script lang="ts">
-  import { interpretValue } from './functions';
+  import { interpretValue, valueToCardText } from './functions';
   export let left = 0;
   export let top = 0;
-  export let value = 0;
+  export let value: number;
 </script>
 
-{#if value !== undefined}
+{#if value !== -1}
   <div class='card' on:click style={`left: ${left}px; top: ${top}px; background-color: ${interpretValue(value)[1]}`}>
     <p class='cardText'>
-      {interpretValue(value)[0]}
+      {valueToCardText(value)}
     </p>
   </div>
 {/if}
