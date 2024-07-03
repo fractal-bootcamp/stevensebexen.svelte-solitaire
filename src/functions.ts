@@ -37,6 +37,8 @@ export function valueToCardText(val: number): string {
       return 'Q';
     case 11:
       return 'J';
+    case 1:
+      return 'A';
     default:
       return value.toString();
   }
