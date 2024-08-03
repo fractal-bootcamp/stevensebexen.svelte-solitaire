@@ -21,14 +21,12 @@
     deck = cardPool.slice(1);
     waste = [cardPool[0]];
     shuffle(deck);
-    console.log(pyramid, deck, waste);
   }
 
   function drawCard() {
     if (deck.length <= 0) return;
     waste = [...waste, deck[deck.length - 1]];
     deck = deck.slice(0, deck.length - 1);
-    console.log('h')
   }
 
   function shuffle(arr: number[]) {
@@ -49,22 +47,16 @@
     const [i, j] = toPyramidCoords(index);
     if (i === 6) return true;
     const [x0, x1] = [fromPyramidCoords(i + 1, j), fromPyramidCoords(i + 1, j + 1)];
-    console.log(x0, x1, pyramid[x0], pyramid[x1]);
     if (pyramid[x0] !== -1 || pyramid[x1] !== -1) return false;
     return true;
   }
 
   function tryMove(index: number) {
-    console.log('x')
     if (pyramid[index] === undefined) return;
-    console.log('y')
     if (!isUncovered(index)) return;
-    console.log('z')
     if (!cardsAdjacent(pyramid[index], waste[waste.length - 1])) return;
-    console.log('a')
     waste = [...waste, pyramid[index]];
     pyramid = pyramid.with(index, -1);
-    console.log(pyramid);
   }
 </script>
 
